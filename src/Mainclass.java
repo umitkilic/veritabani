@@ -202,7 +202,7 @@ public class Mainclass extends javax.swing.JFrame {
                 .addComponent(savebutton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 25, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -269,6 +269,7 @@ public class Mainclass extends javax.swing.JFrame {
         age=Integer.parseInt(age_tf.getText());
         try {
             st=c.createStatement();
+            
             String query="insert into bilgiler (name,age) values (?, ?)";
             PreparedStatement preparedStmt = c.prepareStatement(query);
             preparedStmt.setString (1, name);
@@ -287,7 +288,6 @@ public class Mainclass extends javax.swing.JFrame {
 
     private void nametableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nametableMouseClicked
         // TODO add your handling code here:
-        System.out.println("tiktiktik.");
         
         selectedid=Integer.parseInt(data.get(nametable.getSelectedRow()).get(0).toString());
         System.out.println(selectedid);

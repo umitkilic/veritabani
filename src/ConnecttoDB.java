@@ -23,19 +23,12 @@ public class ConnecttoDB {
     Connection conn=null;
     
     public Connection connectdb(){
-        
-    
-    
         try{
             Class.forName(DATABASE_DRIVER);
-            
-            System.out.println("Connecting to db...");
             conn=DriverManager.getConnection(DATABASE_URL,USERNAME,PASSWORD);
-            System.out.println("Connected...");
         }catch(Exception e){
             System.out.println("baglanamadi...");
             e.printStackTrace();
-            
         }
         return conn;
     }
