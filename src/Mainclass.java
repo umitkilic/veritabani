@@ -1,10 +1,12 @@
 
-import java.awt.List;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import javax.swing.ListModel;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -25,6 +27,8 @@ public class Mainclass extends javax.swing.JFrame {
     private final DefaultTableModel tableModel = new DefaultTableModel();
     int selectedid=0;
     Vector<Vector<Object>> data = new Vector<Vector<Object>>();
+    DefaultListModel dlm=new DefaultListModel();
+    List<Student> dataforlistj=new ArrayList<Student>();
     /**
      * Creates new form Mainclass
      */
@@ -42,6 +46,7 @@ public class Mainclass extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        myrbgroup = new javax.swing.ButtonGroup();
         connectbutton = new javax.swing.JButton();
         statuslabel = new javax.swing.JLabel();
         closebutton = new javax.swing.JButton();
@@ -56,6 +61,23 @@ public class Mainclass extends javax.swing.JFrame {
         savebutton = new javax.swing.JButton();
         updatebutton = new javax.swing.JButton();
         deletebutton = new javax.swing.JButton();
+        chkboxa = new javax.swing.JCheckBox();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        jRadioButton6 = new javax.swing.JRadioButton();
+        jRadioButton7 = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        combobox1 = new javax.swing.JComboBox<>();
+        ustmenu = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        chkbox = new javax.swing.JCheckBoxMenuItem();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
@@ -97,6 +119,11 @@ public class Mainclass extends javax.swing.JFrame {
             }
         });
 
+        namelist.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                namelistMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(namelist);
 
         nametable.setModel(new javax.swing.table.DefaultTableModel(
@@ -148,6 +175,62 @@ public class Mainclass extends javax.swing.JFrame {
             }
         });
 
+        chkboxa.setText("A");
+
+        jRadioButton1.setText("RadioButton 1");
+
+        jRadioButton2.setText("RadioButton 2");
+
+        jRadioButton3.setText("RadioButton 3");
+
+        myrbgroup.add(jRadioButton4);
+        jRadioButton4.setText("RadioButton 4");
+
+        myrbgroup.add(jRadioButton6);
+        jRadioButton6.setText("RadioButton 5");
+
+        myrbgroup.add(jRadioButton7);
+        jRadioButton7.setText("RadioButton 6");
+
+        jLabel1.setText("Group");
+
+        jCheckBox1.setText("B");
+
+        combobox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jMenu1.setText("File");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
+
+        jMenu3.setText("Menu 1");
+
+        jMenuItem2.setText("jMenuItem2");
+        jMenu3.add(jMenuItem2);
+
+        jMenu1.add(jMenu3);
+
+        jMenuItem1.setText("File 1");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        chkbox.setSelected(true);
+        chkbox.setText("checkbox");
+        jMenu1.add(chkbox);
+
+        ustmenu.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        ustmenu.add(jMenu2);
+
+        setJMenuBar(ustmenu);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -171,46 +254,96 @@ public class Mainclass extends javax.swing.JFrame {
                                 .addComponent(getalltotablebutton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(savebutton))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(chkboxa)
+                            .addComponent(jCheckBox1))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton2)
+                            .addComponent(jRadioButton1)
+                            .addComponent(jRadioButton3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton4)
+                            .addComponent(jRadioButton6)
+                            .addComponent(jRadioButton7)
+                            .addComponent(jLabel1))
+                        .addGap(21, 21, 21))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(combobox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 3, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 3, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(updatebutton)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(deletebutton))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(connectbutton)
-                    .addComponent(closebutton))
-                .addGap(18, 18, 18)
-                .addComponent(statuslabel)
-                .addGap(28, 28, 28)
-                .addComponent(getall)
-                .addGap(54, 54, 54)
-                .addComponent(getalltotablebutton)
-                .addGap(77, 77, 77)
-                .addComponent(name_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(age_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(savebutton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(updatebutton)
-                    .addComponent(deletebutton))
-                .addGap(219, 219, 219))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(connectbutton)
+                            .addComponent(closebutton))
+                        .addGap(18, 18, 18)
+                        .addComponent(statuslabel)
+                        .addGap(28, 28, 28)
+                        .addComponent(getall)
+                        .addGap(54, 54, 54)
+                        .addComponent(getalltotablebutton)
+                        .addGap(77, 77, 77)
+                        .addComponent(name_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(age_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(chkboxa)
+                                .addComponent(jRadioButton1)
+                                .addComponent(jRadioButton4)
+                                .addComponent(updatebutton)
+                                .addComponent(deletebutton)))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addComponent(jCheckBox1)
+                        .addGap(58, 58, 58))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(savebutton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRadioButton7)
+                                    .addComponent(jRadioButton2))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jRadioButton6))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(11, 11, 11)
+                                        .addComponent(jRadioButton3)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(combobox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(137, 137, 137))
         );
 
         getAccessibleContext().setAccessibleDescription("");
@@ -234,25 +367,32 @@ public class Mainclass extends javax.swing.JFrame {
 
     private void getallMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getallMouseClicked
         // TODO add your handling code here:
-        DefaultListModel dlm=new DefaultListModel();
         
+        dlm.removeAllElements();
         try {
             st=c.createStatement();
             ResultSet rs=st.executeQuery("select * from bilgiler");
-            
+            int i=0;
             while(rs.next()){
+                Student s=new Student();
          //Retrieve by column name
          int id  = rs.getInt("ID");
          int age = rs.getInt("age");
          String name = rs.getString("name");
+         s.setId(id);
+         s.setAge(age);
+         s.setName(name);
+         
          dlm.addElement(name);
-
+         dataforlistj.add(s);
       }
         } catch (Exception e) {
             e.printStackTrace();
         }
         
+        
         namelist.setModel(dlm);
+        
     }//GEN-LAST:event_getallMouseClicked
 
     private void getalltotablebuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getalltotablebuttonMouseClicked
@@ -304,17 +444,24 @@ public class Mainclass extends javax.swing.JFrame {
         System.out.println("update");
     }//GEN-LAST:event_updatebuttonMouseClicked
 
+    // ekran acildiginda
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         System.out.println("dele");
-       
+        List<String> ls=new ArrayList<>();
+        ls.add("abc");
+        ls.add("dfe");
+       combobox1.setModel(new DefaultComboBoxModel(ls.toArray()));
     }//GEN-LAST:event_formWindowOpened
 
+    //ekran kapandiginda
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
         System.out.println("no");
+        System.out.println(chkbox.isSelected());
     }//GEN-LAST:event_formWindowClosing
 
+    // ekrana dönüldüğünde
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         // TODO add your handling code here:
         System.out.println("gaineeed");
@@ -348,6 +495,23 @@ public class Mainclass extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_deletebuttonMouseClicked
+
+    private void namelistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_namelistMouseClicked
+        // TODO add your handling code here:
+        int in=namelist.getSelectedIndex();
+        int s_id=dataforlistj.get(in).getId();
+        System.out.println(s_id);
+    }//GEN-LAST:event_namelistMouseClicked
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        // TODO add your handling code here:
+        System.out.println("file basildi");
+    }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        System.out.println("bur");
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     public void statuslabelchange(Connection c){
         if(c!=null)
@@ -427,18 +591,36 @@ public class Mainclass extends javax.swing.JFrame {
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField age_tf;
+    private javax.swing.JCheckBoxMenuItem chkbox;
+    private javax.swing.JCheckBox chkboxa;
     private javax.swing.JButton closebutton;
+    private javax.swing.JComboBox<String> combobox1;
     private javax.swing.JButton connectbutton;
     private javax.swing.JButton deletebutton;
     private javax.swing.JButton getall;
     private javax.swing.JButton getalltotablebutton;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.ButtonGroup myrbgroup;
     private javax.swing.JTextField name_tf;
     private javax.swing.JList<String> namelist;
     private javax.swing.JTable nametable;
     private javax.swing.JButton savebutton;
     private javax.swing.JLabel statuslabel;
     private javax.swing.JButton updatebutton;
+    private javax.swing.JMenuBar ustmenu;
     // End of variables declaration//GEN-END:variables
 }
